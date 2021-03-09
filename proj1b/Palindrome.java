@@ -33,15 +33,31 @@ public class Palindrome {
      * returns false.
      */
     public boolean isPalindrome(String word) {
-        if (word.length() <= 1) {
+        Deque<Character> deque = wordToDeque(word);
+        return isPalindromeHelper(deque);
+    }
+
+
+    /**Helper function for overloading isPalindrome.*/
+    public boolean isPalindromeHelper(Deque<Character> deque, CharacterComparator cc) {
+        if (deque.size() <= 1) {
             return true;
         }
-        Deque<Character> deque = wordToDeque(word);
-        if (isPalindromeHelper(deque)) {
-            return true;
+        char first = deque.removeFirst();
+        char last = deque.removeLast();
+        if (cc.equalChars(first, last)) {
+            return isPalindromeHelper(deque, cc);
         }
         return false;
     }
 
+
+    /**Overload isPalindrome function. It returns true if the difference between characters of the corresponding
+     * position is one, otherwise, returns false.
+     */
+    public boolean isPalindrome(String word, CharacterComparator cc) {
+        Deque<Character> deque = wordToDeque(word);
+        return isPalindromeHelper(deque, cc);
+    }
 
 }
