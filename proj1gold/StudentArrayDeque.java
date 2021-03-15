@@ -43,7 +43,6 @@ public class StudentArrayDeque<T> {
                 this.f = 1;
                 this.g = true;
             }
-
             ++this.c;
         } catch (RuntimeException rte) {
             return;

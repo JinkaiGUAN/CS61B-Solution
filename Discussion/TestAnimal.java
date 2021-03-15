@@ -15,6 +15,8 @@ public class TestAnimal {
 		a.greet();
 		((Cat) a).greet(); // Cat Garfield says: Meow?
 		a.greet(); //  Cat Garfield says: Meow?
+		a = new Dog("Fod", 10);
+//		d = a;
 	}
 
 }
